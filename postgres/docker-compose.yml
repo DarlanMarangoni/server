@@ -12,6 +12,12 @@ services:
       - "5432:5432"
     volumes:
       - /mnt/hd/data/pgdata:/var/lib/postgresql/data
+    # Limitar memória e CPU
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'  # Limite de 50% de um núcleo de CPU
+          memory: 512M  # Limite de 512 MB de memória
 
 volumes:
   pgdata:
